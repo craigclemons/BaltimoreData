@@ -6,6 +6,9 @@
     var app = express();
     var baltimore = require('./baltimore');
     var _ = require('lodash');
+	 var utilitySum = require('./utility/arraySum.js');
+	
+	
     app.all('*', function (req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
@@ -35,6 +38,8 @@
        
 		var thing = {};
 		var agencyIdList = [];
+		var youthSummerGrossPay = [];
+		var youthSummerAnnualSalary = [];
 		var sid, id, position, createdAt, createdMeta, updatedAt, updatedMeta, meta, name, jobTitle, agencyID, agency, hireDate, annualSalary, grossPay;
 		 
 		 baltimore.data.forEach(function(entry){
@@ -63,11 +68,16 @@
 			 ] = arrayReturn() || [];
 			 
 			 
+		   if(agency.startsWith("Youth Summer")){
+				 youthSummerGrossPay.push(grossPay);
+				 youthSummerAnnualSalary.push(Number(annualSalary));
+				 //console.log(agency,agencyID);
+			}
 			 
-			 if(!agencyIdList.includes(agencyID)){
-				 agencyIdList.push(agencyID);
-				 console.log(agency,agencyID);
-			 }
+			//if(!agencyIdList.includes(agency)){
+			//	 agencyIdList.push(agency);
+			//	 console.log(agency);
+			// }
 			 
 		 });
 		 
@@ -112,7 +122,10 @@
 		//	 "position",position
 		// ];
 		 
-		 res.send(agencyIdList);
+		 console.log(youthSummerAnnualSalary);
+		 console.log(utilitySum.arraySum(youthSummerAnnualSalary));
+		 
+		 res.send((youthSummerAnnualSalary));
        next();
     });
     
