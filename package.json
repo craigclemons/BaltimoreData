@@ -1,0 +1,14 @@
+{
+  "name": "city-data",
+  "version": "1.0.0",
+  "description": "analysis of data.gov city data",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Craig Clemons",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^6.5.2"
+  }
+}
