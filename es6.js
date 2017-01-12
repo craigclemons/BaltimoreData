@@ -7,6 +7,7 @@
     var baltimore = require('./baltimore');
     var _ = require('lodash');
 	 var utilitySum = require('./utility/arraySum.js');
+	 var utilityMedian = require('./utility/arrayMedian.js')
 	
 	
     app.all('*', function (req, res, next) {
@@ -69,7 +70,7 @@
 			 
 			 
 		   if(agency.startsWith("Youth Summer")){
-				 youthSummerGrossPay.push(grossPay);
+				 youthSummerGrossPay.push(Number(grossPay));
 				 youthSummerAnnualSalary.push(Number(annualSalary));
 				 //console.log(agency,agencyID);
 			}
@@ -122,10 +123,15 @@
 		//	 "position",position
 		// ];
 		 
-		 console.log(youthSummerAnnualSalary);
-		 console.log(utilitySum.arraySum(youthSummerAnnualSalary));
+		 console.log(youthSummerGrossPay);
+		 //console.log(utilitySum.arraySum(youthSummerAnnualSalary));
+		 //var youthSummerMedianAnnualSalary = utilityMedian.arrayMedian(youthSummerAnnualSalary);
+		 var youthSummerMedianGrossPay = utilityMedian.arrayMedian(youthSummerGrossPay);
+		 //console.log(youthSummerGrossPay);
+		 //console.log(youthSummerMedianAnnualSalary);
 		 
-		 res.send((youthSummerAnnualSalary));
+		 
+		 res.send("youthSummerMedianAnnualSalary");
        next();
     });
     

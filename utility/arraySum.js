@@ -1,5 +1,5 @@
 module.exports = {
-	arraySum : function sumArray(values) {
+	arraySum : function sumArray(values = []) {
 		function add(a, b) {
 			return a + b;
 		}
