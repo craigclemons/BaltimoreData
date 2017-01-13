@@ -7,7 +7,8 @@
     var baltimore = require('./baltimore');
     var _ = require('lodash');
 	 var utilitySum = require('./utility/arraySum.js');
-	 var utilityMedian = require('./utility/arrayMedian.js')
+	 var utilityMedian = require('./utility/arrayMedian.js');
+	 var utilityMean = require('./utility/arrayMean.js');
 	
 	
     app.all('*', function (req, res, next) {
@@ -123,11 +124,13 @@
 		//	 "position",position
 		// ];
 		 
-		 console.log(youthSummerGrossPay);
+		 //console.log(youthSummerGrossPay);
 		 //console.log(utilitySum.arraySum(youthSummerAnnualSalary));
 		 //var youthSummerMedianAnnualSalary = utilityMedian.arrayMedian(youthSummerAnnualSalary);
-		 var youthSummerMedianGrossPay = utilityMedian.arrayMedian(youthSummerGrossPay);
-		 //console.log(youthSummerGrossPay);
+		 //var youthSummerMedianGrossPay = utilityMedian.arrayMedian(youthSummerGrossPay);
+		 //var youthSummerMeanGrossPay = utilityMean.arrayMean(youthSummerGrossPay);
+		 console.log(utilitySum.arraySum(youthSummerGrossPay));
+		 console.log(utilityMean.arrayMean(youthSummerGrossPay));
 		 //console.log(youthSummerMedianAnnualSalary);
 		 
 		 
