@@ -1,4 +1,5 @@
 (function () {
+    console.log("I'm a git commit")
     var bodyParser = require('body-parser');
     var express = require('express');
     var app = express();
